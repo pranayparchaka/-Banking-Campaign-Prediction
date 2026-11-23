@@ -1,0 +1,426 @@
+{
+  "dataset": "bank-full.csv",
+  "random_state": 42,
+  "target_column": "y",
+  "excluded_leakage_columns": [
+    "duration"
+  ],
+  "feature_columns": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "contact",
+    "day",
+    "month",
+    "campaign",
+    "pdays",
+    "previous",
+    "poutcome"
+  ],
+  "numeric_columns": [
+    "age",
+    "balance",
+    "day",
+    "campaign",
+    "pdays",
+    "previous"
+  ],
+  "categorical_columns": [
+    "job",
+    "marital",
+    "education",
+    "default",
+    "housing",
+    "loan",
+    "contact",
+    "month",
+    "poutcome"
+  ],
+  "split_sizes": {
+    "development": 36168,
+    "test": 9043,
+    "inner_fit": 28934,
+    "inner_validation": 7234
+  },
+  "selection_rule": "highest inner-validation PR-AUC, then ROC-AUC, then F1; test metrics are not used for selection",
+  "class_imbalance": {
+    "logistic_regression": "class_weight=balanced",
+    "decision_tree": "class_weight=balanced",
+    "random_forest": "class_weight=balanced_subsample",
+    "gradient_boosting": "balanced sample weights during fit"
+  },
+  "validation_scores_for_selection": {
+    "Logistic Regression": {
+      "accuracy": 0.7564279789881116,
+      "precision": 0.2684529828109201,
+      "recall": 0.6276595744680851,
+      "f1": 0.37606232294617564,
+      "roc_auc": 0.7680972449820955,
+      "pr_auc": 0.40658536863688294,
+      "confusion_matrix": [
+        [
+          4941,
+          1447
+        ],
+        [
+          315,
+          531
+        ]
+      ],
+      "threshold": 0.5
+    },
+    "Decision Tree": {
+      "accuracy": 0.8306607685927564,
+      "precision": 0.35741158765989467,
+      "recall": 0.5614657210401891,
+      "f1": 0.4367816091954023,
+      "roc_auc": 0.7528340668303897,
+      "pr_auc": 0.3778091052207684,
+      "confusion_matrix": [
+        [
+          5534,
+          854
+        ],
+        [
+          371,
+          475
+        ]
+      ],
+      "threshold": 0.5
+    },
+    "Random Forest": {
+      "accuracy": 0.8950787945811446,
+      "precision": 0.639871382636656,
+      "recall": 0.23522458628841608,
+      "f1": 0.3439930855661193,
+      "roc_auc": 0.7880176853467864,
+      "pr_auc": 0.4229000405340801,
+      "confusion_matrix": [
+        [
+          6276,
+          112
+        ],
+        [
+          647,
+          199
+        ]
+      ],
+      "threshold": 0.5
+    },
+    "Gradient Boosting": {
+      "accuracy": 0.796378213989494,
+      "precision": 0.317201166180758,
+      "recall": 0.6430260047281324,
+      "f1": 0.42483404919953144,
+      "roc_auc": 0.7977686257181388,
+      "pr_auc": 0.44594684667146517,
+      "confusion_matrix": [
+        [
+          5217,
+          1171
+        ],
+        [
+          302,
+          544
+        ]
+      ],
+      "threshold": 0.5
+    }
+  },
+  "tuned_model": "Gradient Boosting",
+  "best_params": {
+    "model__learning_rate": 0.1,
+    "model__max_depth": 3,
+    "model__n_estimators": 100
+  },
+  "best_cv_pr_auc": 0.42755959184516024,
+  "tuning_results": [
+    {
+      "params": {
+        "model__learning_rate": 0.1,
+        "model__max_depth": 3,
+        "model__n_estimators": 100
+      },
+      "mean_cv_pr_auc": 0.42755959184516024,
+      "std_cv_pr_auc": 0.004438888293401444
+    },
+    {
+      "params": {
+        "model__learning_rate": 0.1,
+        "model__max_depth": 3,
+        "model__n_estimators": 75
+      },
+      "mean_cv_pr_auc": 0.424464597241421,
+      "std_cv_pr_auc": 0.002367179160744748
+    },
+    {
+      "params": {
+        "model__learning_rate": 0.1,
+        "model__max_depth": 2,
+        "model__n_estimators": 100
+      },
+      "mean_cv_pr_auc": 0.4200189481723976,
+      "std_cv_pr_auc": 0.008085303390458348
+    },
+    {
+      "params": {
+        "model__learning_rate": 0.05,
+        "model__max_depth": 3,
+        "model__n_estimators": 100
+      },
+      "mean_cv_pr_auc": 0.41716942278002495,
+      "std_cv_pr_auc": 0.0009155971232427396
+    },
+    {
+      "params": {
+        "model__learning_rate": 0.1,
+        "model__max_depth": 2,
+        "model__n_estimators": 75
+      },
+      "mean_cv_pr_auc": 0.4148065861422229,
+      "std_cv_pr_auc": 0.007209321824162118
+    },
+    {
+      "params": {
+        "model__learning_rate": 0.05,
+        "model__max_depth": 3,
+        "model__n_estimators": 75
+      },
+      "mean_cv_pr_auc": 0.41162574631766424,
+      "std_cv_pr_auc": 0.0009449172160979069
+    },
+    {
+      "params": {
+        "model__learning_rate": 0.05,
+        "model__max_depth": 2,
+        "model__n_estimators": 100
+      },
+      "mean_cv_pr_auc": 0.4055714876544205,
+      "std_cv_pr_auc": 0.0047841309310265034
+    },
+    {
+      "params": {
+        "model__learning_rate": 0.05,
+        "model__max_depth": 2,
+        "model__n_estimators": 75
+      },
+      "mean_cv_pr_auc": 0.397108304081519,
+      "std_cv_pr_auc": 0.004906985400242259
+    }
+  ],
+  "test_results": {
+    "Logistic Regression": {
+      "accuracy": 0.75494857901139,
+      "precision": 0.26634382566585957,
+      "recall": 0.6238185255198487,
+      "f1": 0.3733031674208145,
+      "roc_auc": 0.7722285286803114,
+      "pr_auc": 0.40916379937778385,
+      "confusion_matrix": [
+        [
+          6167,
+          1818
+        ],
+        [
+          398,
+          660
+        ]
+      ],
+      "threshold": 0.5
+    },
+    "Decision Tree": {
+      "accuracy": 0.8324671016255667,
+      "precision": 0.35955746773202213,
+      "recall": 0.552930056710775,
+      "f1": 0.43575418994413406,
+      "roc_auc": 0.7685507325289739,
+      "pr_auc": 0.3860935216607188,
+      "confusion_matrix": [
+        [
+          6943,
+          1042
+        ],
+        [
+          473,
+          585
+        ]
+      ],
+      "threshold": 0.5
+    },
+    "Random Forest": {
+      "accuracy": 0.8951675328983745,
+      "precision": 0.6486486486486487,
+      "recall": 0.22684310018903592,
+      "f1": 0.33613445378151263,
+      "roc_auc": 0.7901057985613384,
+      "pr_auc": 0.424630286115415,
+      "confusion_matrix": [
+        [
+          7855,
+          130
+        ],
+        [
+          818,
+          240
+        ]
+      ],
+      "threshold": 0.5
+    },
+    "Gradient Boosting": {
+      "accuracy": 0.7985181908658631,
+      "precision": 0.32199440820130476,
+      "recall": 0.6531190926275993,
+      "f1": 0.4313358302122347,
+      "roc_auc": 0.7979589565974956,
+      "pr_auc": 0.44418007019813005,
+      "confusion_matrix": [
+        [
+          6530,
+          1455
+        ],
+        [
+          367,
+          691
+        ]
+      ],
+      "threshold": 0.5
+    },
+    "Tuned Gradient Boosting": {
+      "accuracy": 0.8032732500276457,
+      "precision": 0.3267659778952427,
+      "recall": 0.6427221172022685,
+      "f1": 0.4332589996814272,
+      "roc_auc": 0.799841621755347,
+      "pr_auc": 0.44655636460006587,
+      "confusion_matrix": [
+        [
+          6584,
+          1401
+        ],
+        [
+          378,
+          680
+        ]
+      ],
+      "threshold": 0.5
+    }
+  },
+  "best_model": "Tuned Gradient Boosting",
+  "best_model_path": "models\\best_model.joblib",
+  "test_predictions_path": "reports\\phase2_test_predictions.csv",
+  "feature_importance_figure": "reports/figures/phase2_feature_importance_tuned_gradient_boosting.png",
+  "top_feature_importance": [
+    {
+      "feature": "poutcome_success",
+      "importance": 0.2754399538644064,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "contact_unknown",
+      "importance": 0.15812757124278481,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "age",
+      "importance": 0.06576923010612233,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "day",
+      "importance": 0.05426559465021942,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "balance",
+      "importance": 0.050737875997844545,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "housing_yes",
+      "importance": 0.04490654891338064,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "pdays",
+      "importance": 0.03669676012943244,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "campaign",
+      "importance": 0.032773724005478067,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "month_mar",
+      "importance": 0.03243238093830297,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "month_oct",
+      "importance": 0.03226170143754581,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "housing_no",
+      "importance": 0.03173575825393088,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "month_jun",
+      "importance": 0.023497721510672538,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "month_apr",
+      "importance": 0.02043394964813007,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "marital_married",
+      "importance": 0.018691249880007334,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "month_sep",
+      "importance": 0.012875250184209572,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "month_feb",
+      "importance": 0.01233587599830219,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "marital_single",
+      "importance": 0.011831242651146299,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "contact_cellular",
+      "importance": 0.010804986858293958,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "month_nov",
+      "importance": 0.010258878043171816,
+      "importance_kind": "feature_importance"
+    },
+    {
+      "feature": "loan_no",
+      "importance": 0.010157090084078899,
+      "importance_kind": "feature_importance"
+    }
+  ],
+  "confusion_matrix_figures": {
+    "Logistic Regression": "reports/figures/phase2_confusion_matrix_logistic_regression.png",
+    "Decision Tree": "reports/figures/phase2_confusion_matrix_decision_tree.png",
+    "Random Forest": "reports/figures/phase2_confusion_matrix_random_forest.png",
+    "Gradient Boosting": "reports/figures/phase2_confusion_matrix_gradient_boosting.png",
+    "Tuned Gradient Boosting": "reports/figures/phase2_confusion_matrix_tuned_gradient_boosting.png"
+  }
+}

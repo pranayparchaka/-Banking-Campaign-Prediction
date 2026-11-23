@@ -1,0 +1,272 @@
+{
+  "dataset": {
+    "path": "bank-full.csv",
+    "rows": 45211,
+    "columns": 17,
+    "column_names": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "balance",
+      "housing",
+      "loan",
+      "contact",
+      "day",
+      "month",
+      "duration",
+      "campaign",
+      "pdays",
+      "previous",
+      "poutcome",
+      "y"
+    ],
+    "expected_columns_missing": [],
+    "unexpected_columns": [],
+    "dtypes": {
+      "age": "int64",
+      "job": "str",
+      "marital": "str",
+      "education": "str",
+      "default": "str",
+      "balance": "int64",
+      "housing": "str",
+      "loan": "str",
+      "contact": "str",
+      "day": "int64",
+      "month": "str",
+      "duration": "int64",
+      "campaign": "int64",
+      "pdays": "int64",
+      "previous": "int64",
+      "poutcome": "str",
+      "y": "str"
+    }
+  },
+  "target": {
+    "column": "y",
+    "counts": {
+      "no": 39922,
+      "yes": 5289
+    },
+    "positive_count": 5289,
+    "negative_count": 39922,
+    "positive_rate": 0.11698480458295547
+  },
+  "quality": {
+    "missing_by_column": {},
+    "blank_by_column": {},
+    "unknown_by_column": {
+      "job": 288,
+      "education": 1857,
+      "contact": 13020,
+      "poutcome": 36959
+    },
+    "duplicate_rows_in_duplicate_groups": 0,
+    "duplicate_records_after_first_occurrence": 0
+  },
+  "preprocessing": {
+    "target_column": "y",
+    "excluded_leakage_columns": [
+      "duration"
+    ],
+    "numeric_columns": [
+      "age",
+      "balance",
+      "day",
+      "campaign",
+      "pdays",
+      "previous"
+    ],
+    "categorical_columns": [
+      "job",
+      "marital",
+      "education",
+      "default",
+      "housing",
+      "loan",
+      "contact",
+      "month",
+      "poutcome"
+    ],
+    "train_rows_for_smoke_test": 36168,
+    "holdout_rows_for_smoke_test": 9043,
+    "transformed_feature_count": 50,
+    "train_transformed_shape": [
+      36168,
+      50
+    ],
+    "holdout_transformed_shape": [
+      9043,
+      50
+    ],
+    "fit_scope": "training partition only; no fitted transformer is saved in Phase 1"
+  },
+  "eda": {
+    "top_job_response_rates": [
+      {
+        "job": "student",
+        "responders": 269,
+        "customers": 938,
+        "response_rate": 0.2867803837953092
+      },
+      {
+        "job": "retired",
+        "responders": 516,
+        "customers": 2264,
+        "response_rate": 0.22791519434628976
+      },
+      {
+        "job": "unemployed",
+        "responders": 202,
+        "customers": 1303,
+        "response_rate": 0.15502686108979277
+      },
+      {
+        "job": "management",
+        "responders": 1301,
+        "customers": 9458,
+        "response_rate": 0.13755550856417847
+      },
+      {
+        "job": "admin.",
+        "responders": 631,
+        "customers": 5171,
+        "response_rate": 0.12202668729452718
+      }
+    ],
+    "top_contact_response_rates": [
+      {
+        "contact": "cellular",
+        "responders": 4369,
+        "customers": 29285,
+        "response_rate": 0.14918900460986853
+      },
+      {
+        "contact": "telephone",
+        "responders": 390,
+        "customers": 2906,
+        "response_rate": 0.13420509291121818
+      },
+      {
+        "contact": "unknown",
+        "responders": 530,
+        "customers": 13020,
+        "response_rate": 0.040706605222734255
+      }
+    ],
+    "top_month_response_rates": [
+      {
+        "month": "mar",
+        "responders": 248,
+        "customers": 477,
+        "response_rate": 0.519916142557652
+      },
+      {
+        "month": "dec",
+        "responders": 100,
+        "customers": 214,
+        "response_rate": 0.4672897196261682
+      },
+      {
+        "month": "sep",
+        "responders": 269,
+        "customers": 579,
+        "response_rate": 0.46459412780656306
+      },
+      {
+        "month": "oct",
+        "responders": 323,
+        "customers": 738,
+        "response_rate": 0.43766937669376693
+      },
+      {
+        "month": "apr",
+        "responders": 577,
+        "customers": 2932,
+        "response_rate": 0.19679399727148705
+      },
+      {
+        "month": "feb",
+        "responders": 441,
+        "customers": 2649,
+        "response_rate": 0.1664779161947905
+      },
+      {
+        "month": "aug",
+        "responders": 688,
+        "customers": 6247,
+        "response_rate": 0.11013286377461182
+      },
+      {
+        "month": "jun",
+        "responders": 546,
+        "customers": 5341,
+        "response_rate": 0.10222804718217562
+      },
+      {
+        "month": "nov",
+        "responders": 403,
+        "customers": 3970,
+        "response_rate": 0.10151133501259446
+      },
+      {
+        "month": "jan",
+        "responders": 142,
+        "customers": 1403,
+        "response_rate": 0.10121168923734854
+      },
+      {
+        "month": "jul",
+        "responders": 627,
+        "customers": 6895,
+        "response_rate": 0.09093546047860769
+      },
+      {
+        "month": "may",
+        "responders": 925,
+        "customers": 13766,
+        "response_rate": 0.06719453726572715
+      }
+    ],
+    "top_poutcome_response_rates": [
+      {
+        "poutcome": "success",
+        "responders": 978,
+        "customers": 1511,
+        "response_rate": 0.6472534745201853
+      },
+      {
+        "poutcome": "other",
+        "responders": 307,
+        "customers": 1840,
+        "response_rate": 0.16684782608695653
+      },
+      {
+        "poutcome": "failure",
+        "responders": 618,
+        "customers": 4901,
+        "response_rate": 0.1260967149561314
+      },
+      {
+        "poutcome": "unknown",
+        "responders": 3386,
+        "customers": 36959,
+        "response_rate": 0.09161503287426608
+      }
+    ],
+    "figures": [
+      "reports/figures/target_distribution.png",
+      "reports/figures/age_by_outcome.png",
+      "reports/figures/balance_signed_log_distribution.png",
+      "reports/figures/response_rate_by_job.png",
+      "reports/figures/response_rate_by_education.png",
+      "reports/figures/response_rate_by_contact.png",
+      "reports/figures/response_rate_by_month.png",
+      "reports/figures/response_rate_by_poutcome.png",
+      "reports/figures/response_rate_by_campaign_contacts.png",
+      "reports/figures/numeric_correlation_matrix.png"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "base_model": "models\\best_model.joblib",
+  "selected_calibration_method": "sigmoid",
+  "calibration_fit_data": "development-set 5-fold out-of-fold raw probabilities only",
+  "outer_test_used_for_fit": false,
+  "outer_test_used_for_method_selection": false,
+  "random_state": 42,
+  "n_splits": 5,
+  "intended_probability_field": "selected_calibrated_probability",
+  "ranking_field": "raw_ranking_probability"
+}

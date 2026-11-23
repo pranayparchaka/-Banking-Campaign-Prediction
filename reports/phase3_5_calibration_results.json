@@ -1,0 +1,63 @@
+{
+  "dataset": "bank-full.csv",
+  "base_model": "models\\best_model.joblib",
+  "outer_test_customers": 9043,
+  "development_customers": 36168,
+  "actual_outer_test_responders": 1058,
+  "random_state": 42,
+  "n_splits": 5,
+  "calibration_methodology": "Clone the fitted Phase 2 pipeline for each development fold, fit preprocessing and the base estimator on fold-train rows only, generate raw probabilities on fold-validation rows, fit sigmoid and isotonic mappings on the complete OOF probability vector, then evaluate once on the untouched outer test set.",
+  "selection_rule": "Select a development-OOF method with lower Brier score and no more than 0.005 loss in PR-AUC or ROC-AUC versus raw; choose the lowest Brier score. The outer test set is not used for calibration method selection.",
+  "selected_method": "sigmoid",
+  "oof_reliability_improved": true,
+  "oof_metrics": {
+    "raw": {
+      "brier_score": 0.1700105548856422,
+      "roc_auc": 0.7925522237125329,
+      "pr_auc": 0.43163040393316177,
+      "expected_responders_estimate": 14540.340174858618
+    },
+    "sigmoid": {
+      "brier_score": 0.08272173327018012,
+      "roc_auc": 0.7925522237125329,
+      "pr_auc": 0.43163040393316177,
+      "expected_responders_estimate": 4230.01937535015
+    },
+    "isotonic": {
+      "brier_score": 0.0821358162740015,
+      "roc_auc": 0.7939410553809305,
+      "pr_auc": 0.4245750693511302,
+      "expected_responders_estimate": 4231.0
+    }
+  },
+  "outer_test_metrics": {
+    "raw": {
+      "brier_score": 0.1682321440349514,
+      "roc_auc": 0.799841621755347,
+      "pr_auc": 0.44655636460006587,
+      "expected_responders_estimate": 3627.931238890789
+    },
+    "sigmoid": {
+      "brier_score": 0.0814873679124057,
+      "roc_auc": 0.799841621755347,
+      "pr_auc": 0.44655636460006587,
+      "expected_responders_estimate": 1053.1361707965261
+    },
+    "isotonic": {
+      "brier_score": 0.08156259352017176,
+      "roc_auc": 0.7994241920993167,
+      "pr_auc": 0.4329015886613062,
+      "expected_responders_estimate": 1048.415006532438
+    }
+  },
+  "raw_expected_responders": 3627.931238890789,
+  "sigmoid_expected_responders": 1053.1361707965261,
+  "isotonic_expected_responders": 1048.415006532438,
+  "selected_calibrated_expected_responders": 1053.1361707965261,
+  "files": {
+    "comparison": "reports\\phase3_5_calibration_comparison.csv",
+    "test_predictions": "reports\\phase3_5_test_calibrated_predictions.csv",
+    "reliability_figure": "reports\\figures\\phase3_5_reliability_diagram.png",
+    "calibrated_model": "models\\calibrated_best_model.joblib"
+  }
+}

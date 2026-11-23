@@ -1,0 +1,31 @@
+{
+  "best_model": "Tuned Gradient Boosting",
+  "target_column": "y",
+  "excluded_leakage_columns": [
+    "duration"
+  ],
+  "random_state": 42,
+  "feature_columns": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "contact",
+    "day",
+    "month",
+    "campaign",
+    "pdays",
+    "previous",
+    "poutcome"
+  ],
+  "best_params": {
+    "model__learning_rate": 0.1,
+    "model__max_depth": 3,
+    "model__n_estimators": 100
+  },
+  "selection_rule": "highest inner-validation PR-AUC, then ROC-AUC, then F1; test metrics are not used for selection"
+}
